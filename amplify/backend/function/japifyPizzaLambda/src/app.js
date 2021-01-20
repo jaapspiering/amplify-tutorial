@@ -6,9 +6,24 @@ or in the "license" file accompanying this file. This file is distributed on an 
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-
-
 const AWS = require('aws-sdk')
+const uuid = require('uuid'); // Add this to include the npm package
+ 
+const userIdPresent = true; // This is default false, change it to true. This will add the "userId" from Cognito on the POST and use the id in the GET.
+ 
+app.post(path, function(req, res) {
+ 
+  if (userIdPresent) {
+    req.body['userId'] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
+  }
+ 
+  req.body['id'] = uuid.v4(); // Add this to generate the uuid and add it to the JSON body you will be sending from the frontend
+ 
+ 
+// ... etc.
+
+
+
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 var bodyParser = require('body-parser')
 var express = require('express')

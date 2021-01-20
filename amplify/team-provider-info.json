@@ -10,6 +10,11 @@
       "StackName": "amplify-japify-dev-180252",
       "StackId": "arn:aws:cloudformation:eu-west-1:380162700888:stack/amplify-japify-dev-180252/56d14810-5b41-11eb-a92b-022b417ad159",
       "AmplifyAppId": "dhjkn9n71hdx9"
+    },
+    "categories": {
+      "auth": {
+        "japify7e496da2": {}
+      }
     }
   }
 }
